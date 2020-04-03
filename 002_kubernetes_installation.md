@@ -29,10 +29,10 @@ Expected Output:
 
 * Applying /etc/sysctl.d/00-defaults.conf ...
 ..
-* Applying /etc/sysctl.d/k8s.conf ...
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-* Applying /etc/sysctl.conf ...
+* Applying /etc/sysctl.d/k8s.conf ...<br />
+net.bridge.bridge-nf-call-ip6tables = 1<br />
+net.bridge.bridge-nf-call-iptables = 1<br />
+* Applying /etc/sysctl.conf ...<br />
 
 
 $ setenforce 0
@@ -64,7 +64,7 @@ Your Kubernetes control-plane has initialized successfully!
 Then you can join any number of worker nodes by running the following on each as root:
 
 
-kubeadm join 172.31.41.123:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
+kubeadm join 172.31.41.123:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \<br />
     --discovery-token-ca-cert-hash sha256:9e94b12d9391d5afa78bf32beece20ae129f8cff8d3a81b2085ff718a9274879
 
 
@@ -72,9 +72,9 @@ Copy the above join command and save it to run on worker nodes.
 
 ### Execute the below instructions on K8 master node
 
-#mkdir -p $HOME/.kube
-#sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-#sudo chown $(id -u):$(id -g) $HOME/.kube/config
+#mkdir -p $HOME/.kube<br />
+#sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config<br />
+#sudo chown $(id -u):$(id -g) $HOME/.kube/config<br />
 
 # Only on the worker node
 
@@ -98,9 +98,9 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 [root@...]# kubectl get nodes
 
-NAME                                      	              STATUS     ROLES    AGE     VERSION
-ip-X-X-X-X.ap-south-1.compute.internal    NotReady   <none>   2m51s    v1.18.0
-ip-X-X-X-X.ap-south-1.compute.internal    NotReady    master   7m19s    v1.18.0
+NAME                                       STATUS     ROLES    AGE     VERSION<br />
+ip-X-X-X-X.ap-south-1.compute.internal    NotReady   <none>   2m51s    v1.18.0<br />
+ip-X-X-X-X.ap-south-1.compute.internal    NotReady    master   7m19s    v1.18.0<br />
 
 
 [root@...]# kubectl get nodes
@@ -111,9 +111,9 @@ ip-X-X-X-X.ap-south-1.compute.internal    NotReady    master   7m19s    v1.18.0
 
 [root@ip- kubernetes] kubectl get nodes
 
-NAME                   STATUS   	ROLES     AGE   	VERSION
-ip- xxxxxxx            Ready    	master    15m   	v1.18.0
-ip-xxxxxxx             Ready    	<none>    10m     	v1.18.0
+NAME                   STATUS   	ROLES     AGE   	VERSION<br />
+ip- xxxxxxx            Ready    	master    15m   	v1.18.0<br />
+ip-xxxxxxx             Ready    	<none>    10m     v1.18.0<br />
 
 kubectl get pods -o wide
 
