@@ -25,7 +25,7 @@ EOF
 
 $ sysctl --system
 
-### Expected Output:
+Expected Output:
 
 * Applying /etc/sysctl.d/00-defaults.conf ...
 ..
@@ -39,7 +39,7 @@ $ setenforce 0
 
 Expected Output:   setenforce: SELinux is disabled
 
-##Install Kubelet, Kubeadm and Kubectl on K8 master and worker nodes
+### Install Kubelet, Kubeadm and Kubectl on K8 master and worker nodes
 
 $ yum install -y kubelet kubeadm kubectl 
 
@@ -53,8 +53,8 @@ $ systemctl enable kubelet && systemctl start kubelet
 Created symlink from /etc/systemd/system/multi-user.target.wants/kubelet.service to /usr/lib/systemd/system/kubelet.service.
 
 
-Only on Kubernetes Master Node
-==============================
+### Only on Kubernetes Master Node
+==================================
 
 $ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
 
@@ -71,7 +71,8 @@ kubeadm join 172.31.41.123:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
 
 Copy the above join command and save it to run on worker nodes.
 
-# Execute the below instructions on K8 master node. 
+### Execute the below instructions on K8 master node
+====================================================
 
 #mkdir -p $HOME/.kube
 #sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
