@@ -54,7 +54,6 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/kubelet.service
 
 
 ### Only on Kubernetes Master Node
-==================================
 
 $ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
 
@@ -72,7 +71,6 @@ kubeadm join 172.31.41.123:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
 Copy the above join command and save it to run on worker nodes.
 
 ### Execute the below instructions on K8 master node
-====================================================
 
 #mkdir -p $HOME/.kube
 #sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -90,7 +88,6 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
 ## Kubernetes Master Node
-=========================
 
 [root@...]# kubectl cluster-info
 
