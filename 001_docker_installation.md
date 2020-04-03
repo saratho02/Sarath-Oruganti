@@ -1,6 +1,6 @@
 # Docker and Containers
 
-# Install Docker on Amazon EC2 (Amazon Linux 2 AMI)
+## Install Docker on Amazon EC2 (Amazon Linux 2 AMI)
 
 login as: ec2-user
 
