@@ -1,5 +1,7 @@
-Install Kubernetes on Amazon EC2 (Amazon Linux 2 AMI)
+# Install Kubernetes on Amazon EC2 (Amazon Linux 2 AMI)
 
+
+## Instructions to run on both K8 master and worker nodes
 
 $ login as: ec2-user
 
@@ -23,7 +25,7 @@ EOF
 
 $ sysctl --system
 
-Expected Output:
+### Expected Output:
 
 * Applying /etc/sysctl.d/00-defaults.conf ...
 ..
@@ -34,7 +36,10 @@ net.bridge.bridge-nf-call-iptables = 1
 
 
 $ setenforce 0
+
 Expected Output:   setenforce: SELinux is disabled
+
+##Install Kubelet, Kubeadm and Kubectl on K8 master and worker nodes
 
 $ yum install -y kubelet kubeadm kubectl 
 
@@ -48,29 +53,33 @@ $ systemctl enable kubelet && systemctl start kubelet
 Created symlink from /etc/systemd/system/multi-user.target.wants/kubelet.service to /usr/lib/systemd/system/kubelet.service.
 
 
-Kubernetes Master Node
-======================
+Only on Kubernetes Master Node
+==============================
 
 $ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
 
-
+Expected Output: 
 Your Kubernetes control-plane has initialized successfully!
 ……
 
 Then you can join any number of worker nodes by running the following on each as root:
 
+
 kubeadm join 172.31.41.123:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
     --discovery-token-ca-cert-hash sha256:9e94b12d9391d5afa78bf32beece20ae129f8cff8d3a81b2085ff718a9274879
 
 
-# mkdir -p $HOME/.kube
-# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+Copy the above join command and save it to run on worker nodes.
 
+# Execute the below instructions on K8 master node. 
 
-Kubernetes Worker Node 
+#mkdir -p $HOME/.kube
+#sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+#sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# kubeadm join xxx. xxx. xxx. xxx:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
+# Only on the worker node
+
+#kubeadm join xxx. xxx. xxx. xxx:6443 --token 7oy7kg.g2u9wmhewgxyl0zn \
     --discovery-token-ca-cert-hash sha256:9e94b12d9391d5afa78bf32beece20ae129f8cff8d3a81b2085ff718a9274879
 
 This node has joined the cluster:
@@ -79,7 +88,8 @@ This node has joined the cluster:
 
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 
-Kubernetes Master Node
+## Kubernetes Master Node
+=========================
 
 [root@...]# kubectl cluster-info
 
@@ -96,7 +106,6 @@ ip-X-X-X-X.ap-south-1.compute.internal    NotReady    master   7m19s    v1.18.0
 
 
 [root@...]# kubectl get nodes
-
 
 [root@ip- kubernetes]  sudo kubectl apply -f etcd.yaml
 [root@ip- kubernetes]  sudo kubectl apply -f rbac.yaml
