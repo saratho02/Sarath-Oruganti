@@ -1,0 +1,5 @@
+FROM ubuntu:latest
+ENV abc=hello
+ENV ghi=$abc
+RUN echo $abc > bde.txt
+RUN echo $ghi > hij.txt
