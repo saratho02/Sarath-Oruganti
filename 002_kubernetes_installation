@@ -1,6 +1,9 @@
 Install Kubernetes on Amazon EC2 (Amazon Linux 2 AMI)
 
 
+Kubernetes Master and Node
+==========================
+
 $ login as: ec2-user
 
 $ sudo su
