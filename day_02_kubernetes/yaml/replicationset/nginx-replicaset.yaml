@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: nginx-replicaset
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      software: reverse-proxy
+
+      matchExpression:
+        { key: tier, operation: In, values: [Backend]}
+
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        software: reverse-proxy
+        tier: Backend 
+      
+
+    spec:
+      containers:
+      - name: nginx-webserver
+        image: nginx
+
