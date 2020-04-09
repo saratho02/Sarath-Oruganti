@@ -8,9 +8,14 @@ metadata:
 
 spec:
   containers:
-  - name: nginx
+  - name: nginx1
     image: nginx
     ports:
       - containerPort: 80
 
+  - name: tomcat
+    image: tomcat:8
+
+    ports:
+      - containerPort: 8080
 

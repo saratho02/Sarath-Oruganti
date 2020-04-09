@@ -8,6 +8,8 @@ spec:
       software: light-reverse-proxy
 
   replicas: 2
+  strategy:
+    type: Recreate
 
   template:
     metadata:
