@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  selector:
+    matchLabels:
+      software: backend-api
+
+  replicas: 2
+
+  template:
+    metadata:
+      labels:
+        software: backend-api
+    spec:
+      containers:
+        - name: backend-api-pod
+          image: nevincleetus/backend-python:v1
+          ports:
+            - containerPort: 5000
+

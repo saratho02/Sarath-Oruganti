@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+
+spec:
+  selector:
+    matchLabels:
+      software: frontend-webapp
+
+  replicas: 2
+
+  template:
+    metadata:
+      labels:
+        software: frontend-webapp
+    spec:
+      containers:
+        - name: front-end-web 
+          image: nevincleetus/frontend-python:v1 
+
+          ports:
+            - containerPort: 80
+
+          env:
+            - name:  APPURL
+              value: http://10.101.59.14:5000
+
+
