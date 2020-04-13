@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DaemonSet
+
+metadata:
+  name: nginx-daemonset
+  labels:
+    software: ds-reverse-proxy
+
+spec:
+  selector:
+    matchLabels:
+      software: reverse-proxy
+
+  template:
+    metadata:
+      labels:
+        software: reverse-proxy
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+

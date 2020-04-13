@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-configmap
+  
+spec:
+  containers:
+  - name: mybusybox-configmap
+    image: busybox
+    command: ["bin/sh"]
+    args: ["-c", "sleep 600"]
+    env:
+      - name: busybox-memory-env
+        valueFrom:
+            configMapKeyRef:
+              name: example-literal-config
+              key: maxmemory
+
+
