@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name:  hellojob
+spec:
+  activeDeadlineSeconds: 10
+  template:
+    metadata:
+      name:  hellojob
+    spec:
+      containers:
+      - image: alpine
+        name: alpine-hello-container
+        command: ["sleep", "300"]
+

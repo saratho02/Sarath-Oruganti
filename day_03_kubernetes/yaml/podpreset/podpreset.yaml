@@ -1,0 +1,19 @@
+apiVersion: settings.k8s.io/v1alpha1
+kind: PodPreset
+metadata:
+  name: allow-database
+spec:
+  selector:
+    matchLabels:
+      role: worker
+  env:
+     - name: SECRET_USERNAME
+       valueFrom:
+         secretKeyRef:
+           name: mysecret
+           key: rabbit-username
+     - name: SECRET_PASSWORD
+       valueFrom:
+         secretKeyRef:
+           name: mysecret
+           key: rabbit-password
