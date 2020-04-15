@@ -1,1 +1,19 @@
 Readme
+
+Oracle Virtual Box
+
+https://download.virtualbox.org/virtualbox/6.1.4/VirtualBox-6.1.4-136177-Win.exe
+
+
+Install Vagrant
+
+https://www.vagrantup.com/
+
+
+Go to the provisioning folder and run  
+
+vagrant init
+vagrant up
+
+
+
