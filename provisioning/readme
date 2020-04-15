@@ -15,5 +15,7 @@ Go to the provisioning folder and run
 vagrant init
 vagrant up
 
+If the vm creation fail with error "Virtualization need to be enabled", restart the machine and during the boot time, 
+press F11/F12 and enable the virtualization from the BIOS setup.
 
 
