@@ -19,3 +19,10 @@ If the vm creation fail with error "Virtualization need to be enabled", restart 
 press F11/F12 and enable the virtualization from the BIOS setup.
 
 
+Enable Virtualization in OS 
+---------------------------
+
+Press F2 key at startup BIOS Setup.
+Press the right arrow key to the Advanced tab, Select Virtualization and then press the Enter key.
+Select Enabled and press the Enter key.
+Press the F10 key and select Yes and press the Enter key to save changes and Reboot into Windows.
