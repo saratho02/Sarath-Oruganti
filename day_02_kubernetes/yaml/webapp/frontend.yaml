@@ -24,6 +24,6 @@ spec:
 
           env:
             - name:  APPURL
-              value: http://10.111.25.188:5000
+              value: http://10.109.35.138:5000
 
 
