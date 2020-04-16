@@ -1,1 +1,28 @@
 Readme
+
+Oracle Virtual Box
+
+https://download.virtualbox.org/virtualbox/6.1.4/VirtualBox-6.1.4-136177-Win.exe
+
+
+Install Vagrant
+
+https://www.vagrantup.com/
+
+
+Go to the provisioning folder and run  
+
+vagrant init
+vagrant up
+
+If the vm creation fail with error "Virtualization need to be enabled", restart the machine and during the boot time, 
+press F11/F12 and enable the virtualization from the BIOS setup.
+
+
+Enable Virtualization in OS 
+---------------------------
+
+Press F2 key at startup BIOS Setup.
+Press the right arrow key to the Advanced tab, Select Virtualization and then press the Enter key.
+Select Enabled and press the Enter key.
+Press the F10 key and select Yes and press the Enter key to save changes and Reboot into Windows.
