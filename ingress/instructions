@@ -1,0 +1,27 @@
+Install HAProxy
+
+yum install -y haproxy
+
+
+vi /etc/haproxy/haproxy.cfg
+
+Remove the section between global and defaults and add the below entry
+
+
+haproxy.cfg
+
+frontend http_front
+  bind *:80
+  stats uri /haproxy?stats
+  default_backend http_back
+
+backend http_back
+  balance roundrobin
+  server kube <worker-node1-ip>:80
+  server kube <worker-node2-ip>:80
+  
+  
+  Internal IP which you get from get nodes 
+  
+  systemctl start haproxy
+  systemctl enable haproxy
