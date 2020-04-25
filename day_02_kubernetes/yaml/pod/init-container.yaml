@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sleep-pod
+  labels:
+    app: sleeping-app
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo The app is running! && sleep 100']
+  initContainers:
+  - name: initcontainer
+    image: busybox
+    command: ['sh', '-c', 'echo initcontainer start; sleep 10'] 
