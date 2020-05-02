@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Binding
+metadata:
+    name: nginx-manual
+    labels:
+        software: reverse-proxy
+
+target:
+    apiVersion: v1
+    kind: Node
+    name: kworker1

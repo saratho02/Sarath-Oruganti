@@ -5,15 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      role: worker
+      role: frontend
   env:
-     - name: SECRET_USERNAME
-       valueFrom:
-         secretKeyRef:
-           name: mysecret
-           key: rabbit-username
-     - name: SECRET_PASSWORD
-       valueFrom:
-         secretKeyRef:
-           name: mysecret
-           key: rabbit-password
+    - name: DB_PORT
+      value: "6379"
+  volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+  volumes:
+    - name: cache-volume
+      emptyDir: {}

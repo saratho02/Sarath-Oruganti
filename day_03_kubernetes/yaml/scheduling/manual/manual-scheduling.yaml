@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-manual
+  labels:
+     software: reverse-proxy
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+  nodeName: k8worker2  
+ 
+
