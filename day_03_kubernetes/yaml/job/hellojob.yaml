@@ -5,10 +5,11 @@ metadata:
 spec:
   template:
     metadata:
-      name:  hellojob
+      name:  hellojobpod
     spec:
       containers:
       - image: alpine
         name: alpine-hello-container
-        command: ["/bin/echo1"]
+        command: ["/bin/echo"]
         args: ["Hello Kubernetes !!!"]        
+      restartPolicy: Never
