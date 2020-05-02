@@ -3,7 +3,12 @@ kind: Job
 metadata:
   name:  hellojob
 spec:
-  activeDeadlineSeconds: 10
+
+  #activeDeadlineSeconds: 10
+  #completions: 5
+  #backoffLimit: 2
+  #parallelism: 2
+   
   template:
     metadata:
       name:  hellojob
@@ -11,5 +16,5 @@ spec:
       containers:
       - image: alpine
         name: alpine-hello-container
-        command: ["sleep", "300"]
-
+        command: ["sleep", "30"]
+      restartPolicy: Never  
