@@ -16,5 +16,5 @@ spec:
       containers:
       - image: alpine
         name: alpine-hello-container
-        command: ["sleep", "30"]
+        command: ["/bin/echo", "Hello Kubernetes"]
       restartPolicy: Never  
